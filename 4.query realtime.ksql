@@ -1,0 +1,13 @@
+//Stock
+even5
+| where payload_source.table == "Stock" and payload_op <> ""
+| project this = iif(payload_op=="d", payload_before, payload_after),payload_op,payload_ts_ms
+| summarize arg_max(payload_ts_ms, this,payload_op) by tostring(this.Stock_Code)
+| project this,payload_op
+
+//Customer
+even5
+| where payload_source.table == "CUSTOMER" and payload_op <> ""
+| project this = iif(payload_op=="d", payload_before, payload_after),payload_op,payload_ts_ms
+| summarize arg_max(payload_ts_ms, this,payload_op) by tostring(this.Customer_Code)
+| project this,payload_op
