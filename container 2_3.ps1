@@ -51,7 +51,7 @@ $RESTBODY='
         "database.names": "$SQLDATABASENAME",
         "database.server.name": "SQLAzure",
 		"database.encrypt": "false",
-        "table.include.list": "dbo.debezum-cdcsql",
+        "table.include.list": "dbo.Stock,dbo.Customer",
 	    "decimal.handling.mode": "string",
 	    "transforms": "Reroute",
 	    "transforms.Reroute.type": "io.debezium.transforms.ByLogicalTableRouter",
@@ -82,3 +82,6 @@ Start-Sleep -seconds 2
 
 #Check status of connector
 Invoke-RestMethod -Method Get -Uri "http://$DEBEZIUM_IP`:8083/connectors/deb/status"
+
+#delete
+Invoke-WebRequest -Uri "http://$DEBEZIUM_IP`:8083/connectors/deb/" -Method Deleteedit
