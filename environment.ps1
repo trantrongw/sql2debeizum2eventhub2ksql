@@ -1,0 +1,9 @@
+$RESOURCE_GROUP="streaming"
+$LOCATION="eastus"
+$SQLSERVERNAME="cdcservernghiatt"
+$SQLADMINUSERNAME="UserDemoCDC"
+$SQLADMINPASSWORD="demo@123"
+$SQLDATABASENAME="cdc-db"
+$DEBEZIUM_VERSION=2.3
+$EVENTHUB_NAME="nghiattstream"
+$CONTAINER_NAME="debeziumserver"
